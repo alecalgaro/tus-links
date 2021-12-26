@@ -13,10 +13,10 @@ const HeaderContainer = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 4rem;
+    margin: 3rem 0;
 `
 
 const ImgLogo = styled.img`
     width: 10rem;
-    height: 7rem;
+    height: 6rem;
 `

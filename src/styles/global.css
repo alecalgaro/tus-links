@@ -1,9 +1,23 @@
-html {
-    font-size: 62.5%;
+:root {
+    --blue: #4582ec;
+    --blue-dark: #266fee;
+    --white: #fff;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+/* media queries mobile first */
+
+@media (min-width: 992px) {
+    html {
+        font-size: 72.5%;
+    }
 }
