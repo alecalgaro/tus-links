@@ -1,16 +1,43 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
+import db from './../firebase/firebaseConfig'
+import { collection, addDoc } from 'firebase/firestore'
 
 export const Form = () => {
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const [category, setCategory] = useState("");
     const [link, setLink] = useState("");
+
+    const onSubmit = async (e) => {
+        e.preventDefault(); 
+
+        // Conexión a firebase y añadimos el documento
+        try {
+            await addDoc(collection(db, 'links'), {
+                title: title,
+                description: description,
+                category: category,
+                link: link
+            });    
+            console.log('Documento añadido correctamente')
+		} catch (error) {
+			console.log('Hubo un error al intentar guardar el documento')
+			console.log(error)		
+		}
+		// limpio los campos del formulario:
+		setTitle('');
+        setDescription('');
+        setCategory('');
+        setLink('');
+        
+    }
 
     return (
         <>
             <Subtitle>Añadir nuevo link</Subtitle>
-            <FormStyle>
+            <FormStyle onSubmit={onSubmit}>
                 <Input 
                     type="text"
                     name="titulo"
@@ -27,6 +54,16 @@ export const Form = () => {
                     placeholder="Descripción" 
                 />
 
+                <Select onChange={ (e) => setCategory(e.target.value) } >
+                    <option data-hidden="true" value="">Categoria</option>
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="js">JS</option>
+                    <option value="react">React</option>
+                    <option value="iconos">Iconos</option>
+                    <option value="otra">Otra</option>
+                </Select>
+
                 <Input 
                     type="text"
                     name="link"
@@ -35,11 +72,7 @@ export const Form = () => {
                     placeholder="Link" 
                 />
 
-                <Button 
-                    type="submit" 
-                    onClick={console.log("Gola")}
-                    >Agregar
-                </Button>
+                <Button type="submit">Agregar</Button>
                 
             </FormStyle>
         </>
@@ -48,7 +81,6 @@ export const Form = () => {
 
 const Subtitle = styled.h2`
     font-size: 1.5rem;
-    font-family: 'Lucida Sans', sans-serif;
 `
 
 const FormStyle = styled.form`
@@ -56,7 +88,8 @@ const FormStyle = styled.form`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 2rem 0;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
     width: 90%;
 
     @media (min-width: 768px) {
@@ -72,6 +105,15 @@ const Input = styled.input`
     outline: none;
     padding: .2rem 0;
     /* border: 2px solid var(--blue); */
+`
+
+const Select = styled.select`
+    font-size: 1.5rem;
+    text-align: center;
+    width: 90%;
+    margin-bottom: 1rem;
+    outline: none;
+    padding: .2rem 0;
 `
 
 const Button = styled.button`

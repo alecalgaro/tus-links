@@ -13,7 +13,7 @@ const HeaderContainer = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 3rem 0;
+    margin: 2rem 0;
 `
 
 const ImgLogo = styled.img`

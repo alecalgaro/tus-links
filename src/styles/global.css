@@ -2,16 +2,22 @@
     --blue: #4582ec;
     --blue-dark: #266fee;
     --white: #fff;
+    --grey: #ececec;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 html {
     font-size: 62.5%;
+}
+
+a {
+    text-decoration: none;
 }
 
 /* media queries mobile first */
