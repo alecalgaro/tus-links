@@ -64,6 +64,8 @@ export const Link = ({id, title, description, category, link}) => {
                         <option value="css">CSS</option>
                         <option value="js">JS</option>
                         <option value="react">React</option>
+                        <option value="iconos">Iconos</option>
+                        <option value="otra">Otra</option>
                     </Select>
 
                     <Input 
@@ -105,6 +107,15 @@ const LinkContainer = styled.div`
     padding: 1rem;
     text-align: center;
     background-color: var(--grey);
+    width: 90vw;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media (min-width: 768px) {
+        width: 40vw;
+    }
 `
 
 const FormStyle = styled.form`

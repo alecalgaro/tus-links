@@ -17,6 +17,11 @@ const HeaderContainer = styled.header`
 `
 
 const ImgLogo = styled.img`
-    width: 10rem;
-    height: 6rem;
+    width: 12rem;
+    height: 7rem;
+
+    @media (min-width: 768px) {
+        width: 15rem;
+        height: 8rem;
+    }
 `

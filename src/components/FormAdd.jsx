@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
-import db from './../firebase/firebaseConfig'
+import db from '../firebase/firebaseConfig'
 import { collection, addDoc } from 'firebase/firestore'
 
-export const Form = () => {
+export const FormAdd = () => {
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");

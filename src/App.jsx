@@ -1,14 +1,14 @@
 import './styles/global.css'
 import styled from 'styled-components'
 import { Header } from './components/Header';
-import { Form } from './components/Form';
+import { FormAdd } from './components/FormAdd';
 import { ListLinks } from './components/ListLinks';
 
 function App() {
   return (
     <AppContainer>
       <Header />
-      <Form />
+      <FormAdd />
       <ListLinks />
     </AppContainer>
   );
